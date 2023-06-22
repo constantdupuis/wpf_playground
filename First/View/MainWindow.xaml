@@ -10,10 +10,6 @@
     <Window.Resources>
         <vm:MainWindowViewModel x:Key="vm"/>
     </Window.Resources>
-    <DockPanel DataContext="{StaticResource vm}">
-        <ListView DockPanel.Dock="Left"
-                  Width="240"
-                  ItemsSource="{Binding availableCOMPorts}"/>
-    </DockPanel>
+    <DockPanel DataContext="{StaticResource vm}"/>
 
 </Window>
