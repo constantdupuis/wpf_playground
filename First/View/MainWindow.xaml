@@ -6,10 +6,18 @@
         xmlns:vm="clr-namespace:First.ViewModel"
         xmlns:local="clr-namespace:First"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        FontSize="24"
+        Title="MainWindow" Height="300" Width="500">
     <Window.Resources>
         <vm:MainWindowViewModel x:Key="vm"/>
     </Window.Resources>
-    <DockPanel DataContext="{StaticResource vm}"/>
+    <Grid DataContext="{StaticResource vm}">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="data"/>
+            <Button x:Name="getData" Padding="20 10" Click="getData_Click">Get Data</Button>
+            <Button x:Name="openChildForm" Padding="20 10" Click="openChildForm_Click" >Open Child Form</Button>
+        </StackPanel>
+
+    </Grid>
 
 </Window>

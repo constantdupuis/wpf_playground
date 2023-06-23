@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using First.StartupHelpers;
+using First.View;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WpfLibrary;
 
 namespace First
 {
@@ -20,9 +10,24 @@ namespace First
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IDataAccess _dataAccess;
+        private readonly IAbstractFactory<ChildForm> _childFormFactory;
+
+        public MainWindow(IDataAccess dataAccess, IAbstractFactory<ChildForm> childFormFactory)
         {
             InitializeComponent();
+            this._dataAccess = dataAccess;
+            this._childFormFactory = childFormFactory;
+        }
+
+        private void getData_Click(object sender, RoutedEventArgs e)
+        {
+            data.Text = _dataAccess.GetData();
+        }
+
+        private void openChildForm_Click(object sender, RoutedEventArgs e)
+        {
+            _childFormFactory.Create().Show();
         }
     }
 }
