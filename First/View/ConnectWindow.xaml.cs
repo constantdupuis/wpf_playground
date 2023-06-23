@@ -1,5 +1,7 @@
-﻿using System;
+﻿using First.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,14 @@ namespace First.View
     /// </summary>
     public partial class ConnectWindow : Window
     {
-        public ConnectWindow()
+        private ConnectWindowViewModel _vm;
+        public ConnectWindow(ConnectWindowViewModel vm )
         {
             InitializeComponent();
+            _vm = vm;
+            DataContext = _vm;
         }
+
+
     }
 }

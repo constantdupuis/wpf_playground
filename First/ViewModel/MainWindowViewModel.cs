@@ -9,25 +9,11 @@ using System.Windows.Media;
 
 namespace First.ViewModel
 {
-    class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
-        public ObservableCollection<string> availableCOMPorts { get; set; } = new ObservableCollection<string>();
-
         public MainWindowViewModel()
         {
-            GetAvailableCOMPorts();
-        }
-
-        public void GetAvailableCOMPorts()
-        {
-            availableCOMPorts.Clear();
-
-            string[] ports = SerialPort.GetPortNames();
-
-            foreach (var port in ports)
-            {
-                availableCOMPorts.Add(port);
-            }
+            
         }
     }
 }

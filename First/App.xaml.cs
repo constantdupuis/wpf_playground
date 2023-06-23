@@ -19,9 +19,7 @@ namespace First
             AppHost = Host.CreateDefaultBuilder()
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddSingleton<MainWindow>();
-                    services.AddFormFactory<ChildForm>();
-                    services.AddTransient<IDataAccess, DataAccess>();
+                    services.RegisterServices();
                 })
                 .Build();
         }
